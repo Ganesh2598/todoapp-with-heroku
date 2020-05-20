@@ -63,7 +63,7 @@ class Maincontent extends Component{
         }
         
         try {
-            const response = await fetch(`*/${this.user_id}`{
+            const response = await fetch(`*/${this.user_id}`,{
                 headers:{
                     "Content-Type":"application/json",
                     "Accept":"application/json"
