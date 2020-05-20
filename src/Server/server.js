@@ -3,7 +3,9 @@ const cors = require("cors");
 const pool = require("pg").Pool;
 const app = express();
 const path = require("path");
-if (process.env.NODE_ENV !== 'production') { require('dotenv').config() }
+if (process.env.NODE_ENV === 'production') { 
+    app.use(express.static("build"))
+ }
 const port = process.env.PORT || 8000;
 
 app.use(cors());
