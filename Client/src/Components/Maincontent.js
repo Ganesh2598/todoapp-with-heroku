@@ -32,7 +32,7 @@ class Maincontent extends Component{
 
     async componentDidMount(){
         try {
-            const response = await fetch(`/${this.user_id}`,{
+            const response = await fetch(`/todos/${this.user_id}`,{
                 headers:{
                     "Content-Type":"application/json",
                     "Accept":"application/json"
@@ -57,7 +57,7 @@ class Maincontent extends Component{
             let task = this.state.cur_item
             let id = this.user_id
             const body = {task,id}
-            const response = await fetch("/",{
+            const response = await fetch("/todos",{
                 method : "POST",
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(body)
@@ -68,7 +68,7 @@ class Maincontent extends Component{
         }
         
         try {
-            const response = await fetch(`/${this.user_id}`,{
+            const response = await fetch(`/todos/${this.user_id}`,{
                 headers:{
                     "Content-Type":"application/json",
                     "Accept":"application/json"
@@ -90,7 +90,7 @@ class Maincontent extends Component{
     deleteHandler= async item=>{
         try{
             const itemToDelete=[this.user_id,item.item]
-            const deleted = await fetch(`*/${itemToDelete}`,{
+            const deleted = await fetch(`/todos/${itemToDelete}`,{
                 method : "DELETE"
             });
             //console.log(deleted)
