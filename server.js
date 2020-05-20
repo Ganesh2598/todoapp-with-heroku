@@ -44,7 +44,7 @@ app.get("/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.json(todoList.rows)
+        res.json("got it")
         console.log(todoList.rows)
     }catch(err){
         console.log(err);

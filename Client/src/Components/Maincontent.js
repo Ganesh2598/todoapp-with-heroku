@@ -65,6 +65,7 @@ class Maincontent extends Component{
         try {
             const response = await fetch(`*/${this.user_id}`);
             const data = await response.json();
+            console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks,
