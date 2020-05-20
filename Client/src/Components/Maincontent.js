@@ -32,7 +32,7 @@ class Maincontent extends Component{
 
     async componentDidMount(){
         try {
-            const response = await fetch(`/${this.user_id}`);
+            const response = await fetch(`/todos/${this.user_id}`);
             const data = await response.json();
             console.log(data)
             const tasks = data.map(obj => obj.task) 

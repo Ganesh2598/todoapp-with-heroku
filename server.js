@@ -38,7 +38,7 @@ app.post("/",async (req,res)=>{
     }
 })
 
-app.get("/:user",async (req,res)=>{
+app.get("/todos/:user",async (req,res)=>{
     try{
         const id = req.params.user;
         const todoList = await connect.query(
