@@ -31,7 +31,8 @@ class Maincontent extends Component{
     async componentDidMount(){
         try {
             const response = await fetch(`/${this.user_id}`);
-            const data = await response.json();
+            const data = await response.text();
+            console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks,
