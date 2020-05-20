@@ -63,7 +63,12 @@ class Maincontent extends Component{
         }
         
         try {
-            const response = await fetch(`*/${this.user_id}`);
+            const response = await fetch(`*/${this.user_id}`{
+                headers:{
+                    "Content-Type":"application/json",
+                    "Accept":"application/json"
+                }
+            });
             const data = await response.json();
             console.log(data)
             const tasks = data.map(obj => obj.task) 
