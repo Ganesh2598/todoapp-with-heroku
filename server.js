@@ -24,7 +24,7 @@ const connect = new pool({
 });
 
 
-app.post("*/",async (req,res)=>{
+app.post("/",async (req,res)=>{
     try{
         const id = req.body.id;
         const task = req.body.task;
@@ -38,19 +38,20 @@ app.post("*/",async (req,res)=>{
     }
 })
 
-app.get("*/:user",async (req,res)=>{
+app.get("/:user",async (req,res)=>{
     try{
         const id = req.params.user;
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
         res.send(todoList.rows)
+        console.log(todoList.rows)
     }catch(err){
         console.log(err);
     }
 })
 
-app.delete("*/:user",async (req,res)=>{
+app.delete("/:user",async (req,res)=>{
     try{
         const [id,item] = req.params.user.split(",");
         const updated = await connect.query(
