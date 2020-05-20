@@ -2,6 +2,7 @@
   "name": "tutorials",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://todoapp-with-reactjs.herokuapp.com/",
   "engines": {
     "node": "14.2.0",
     "npm": "6.14.4"
