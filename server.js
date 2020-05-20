@@ -24,7 +24,7 @@ const connect = new pool({
 });
 
 
-app.post("/",async (req,res)=>{
+app.post("/todos/",async (req,res)=>{
     try{
         const id = req.body.id;
         const task = req.body.task;
@@ -51,7 +51,7 @@ app.get("/todos/:user",async (req,res)=>{
     }
 })
 
-app.delete("/:user",async (req,res)=>{
+app.delete("/todos/:user",async (req,res)=>{
     try{
         const [id,item] = req.params.user.split(",");
         const updated = await connect.query(
