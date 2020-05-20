@@ -8,6 +8,7 @@ class Maincontent extends Component{
 
     constructor(props){
         super(props)
+        console.log(props.props.location.state)
         if(props.props.location.state !== undefined){
             this.user_id=props.props.location.state.googleusercontent.Ca;
             console.log(this.user_id)
@@ -30,8 +31,8 @@ class Maincontent extends Component{
 
     async componentDidMount(){
         try {
-            const response = await fetch(`/${this.user_id}`);
-            const data = await response.text();
+            const response = await fetch(`*/${this.user_id}`);
+            const data = await response.json();
             console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
@@ -50,7 +51,7 @@ class Maincontent extends Component{
             let task = this.state.cur_item
             let id = this.user_id
             const body = {task,id}
-            const response = await fetch("/",{
+            const response = await fetch("*/",{
                 method : "POST",
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(body)
@@ -77,7 +78,7 @@ class Maincontent extends Component{
     deleteHandler= async item=>{
         try{
             const itemToDelete=[this.user_id,item.item]
-            const deleted = await fetch(`/${itemToDelete}`,{
+            const deleted = await fetch(`*/${itemToDelete}`,{
                 method : "DELETE"
             });
             //console.log(deleted)

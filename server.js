@@ -1,7 +1,8 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
 const pool = require("pg").Pool;
-const app = express();
+
 const path = require("path");
 if (process.env.NODE_ENV === 'production') { 
     app.use(express.static(path.join(__dirname,"Client/build")));
@@ -23,7 +24,7 @@ const connect = new pool({
 });
 
 
-app.post("/",async (req,res)=>{
+app.post("*/",async (req,res)=>{
     try{
         const id = req.body.id;
         const task = req.body.task;
@@ -37,7 +38,7 @@ app.post("/",async (req,res)=>{
     }
 })
 
-app.get("/:user",async (req,res)=>{
+app.get("*/:user",async (req,res)=>{
     try{
         const id = req.params.user;
         const todoList = await connect.query(
@@ -49,7 +50,7 @@ app.get("/:user",async (req,res)=>{
     }
 })
 
-app.delete("/:user",async (req,res)=>{
+app.delete("*/:user",async (req,res)=>{
     try{
         const [id,item] = req.params.user.split(",");
         const updated = await connect.query(
