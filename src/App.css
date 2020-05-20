@@ -1,0 +1,36 @@
+body{
+    background:violet;
+}
+
+h1{
+    text-align: center;
+    color:black;
+}
+
+.main_content1{
+    position:fixed;
+    margin-top:5%;
+    left:20%;
+    border-radius: 10px;;
+    width:60%;
+    height:40%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.heading{
+    text-align: center;
+    color:rgb(247, 236, 236);
+
+}
+
+.google{
+    width:200px;
+    height:60px;
+}
+
+

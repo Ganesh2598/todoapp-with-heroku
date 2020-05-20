@@ -1,0 +1,75 @@
+.main_content{
+    position:fixed;
+    margin-top:5%;
+    left:20%;
+    border: 2px solid red;
+    border-radius: 5px;;
+    width:60%;
+    height:70%;
+    background-color: rgba(0,0,0,0.9);
+   
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:10%;
+}
+
+input[type=text]{
+    border:2px solid blue;
+    background-color: aqua;
+    width: 60%;
+    height:4vh;
+    border-radius: 10px;
+    color:rgb(54, 2, 122);
+    font-size: x-large;
+    padding: 5px;
+}
+
+button{
+    border:2px solid red;
+    background-color: rgb(247, 151, 215);
+    width: 30%;
+    height:6vh;
+    border-radius: 10px;
+    color:rgb(54, 2, 122);
+    font-size: x-large;
+    padding:5px;
+    cursor: pointer;
+}
+
+
+
+
+
+.list{
+    display:flex;
+    justify-content: space-between;
+    background-color: greenyellow;
+    margin: 20px auto;
+    height: 50px;
+    width:80%;
+    font-weight: 500;
+    border:2px solid green;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.list p{
+    margin-left: 10px;
+}
+
+span{
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.list-bg{
+    height:65%;
+    width:90%;
+    margin-left: 5%;
+    overflow: auto;
+}
