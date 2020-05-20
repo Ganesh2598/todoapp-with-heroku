@@ -6,7 +6,7 @@ const path = require("path");
 if (process.env.NODE_ENV === 'production') { 
     app.use(express.static("build"));
     app.get("*",(req,res)=>{
-        res.sendFile(path.join(__dirname,"build","index.html"));
+        res.sendFile(path.join(__dirname,"Client","build","index.html"));
     })
  }
 const port = process.env.PORT || 8000;
@@ -14,12 +14,12 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 
+const dev = "postgresql://postgres:kratos@localhost:5432/todolist";
+const prod = process.env.DATABASE_URL;
+
 const connect = new pool({
-    user : "oxbfeyidmpgzcp",
-    password : "816e0441af0e4be6b405d518ec53e0f1ead72955f24c7e44795c091cf5e71c02",
-    host : "ec2-34-195-169-25.compute-1.amazonaws.com",
-    port : 5432,
-    database : "d5g5g39cittq6e"
+    connectionString:
+    process.env.NODE_ENV=="production" ? prod : dev
 });
 
 

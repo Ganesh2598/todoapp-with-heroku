@@ -1,52 +1,28 @@
 {
   "name": "tutorials",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://todoapp-with-reactjs.herokuapp.com/",
-  "engines": {
-    "node": "14.2.0",
-    "npm": "6.14.4"
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd Client && npm install && npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ganesh2598/TODO-LIST-APP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ganesh2598/TODO-LIST-APP/issues"
+  },
+  "homepage": "https://github.com/Ganesh2598/TODO-LIST-APP#readme",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4",
+    "express": "^4.17.1",
     "path": "^0.12.7",
-    "pg": "^8.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-google-login": "^5.1.20",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "predeplay": "npm install build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "gh-pages": "^2.2.0"
-  },
-  "proxy": "http://127.0.0.1:8000/"
+    "pool": "^0.4.1"
+  }
 }

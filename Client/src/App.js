@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import history from './History'
-import Maincontent from './Client/Maincontent'
+import Maincontent from './Components/Maincontent'
 
 function App() {
 
