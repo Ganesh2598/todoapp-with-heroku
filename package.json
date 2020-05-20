@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "heroku-postbuild": "cd Client && npm install && npm run build"
   },
   "repository": {
@@ -25,7 +25,8 @@
     "path": "^0.12.7",
     "pg": "^8.2.1",
     "pool": "^0.4.1",
-    "history":"4.10.1"
+    "history":"4.10.1",
+    "nodemon":"2.0.4"
   },
   "engines": {
     "node": "14.2.0",
