@@ -36,13 +36,13 @@ class Maincontent extends Component{
                 method : "GET",
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
-            const data = await response.json();
-            console.log(data)
-            const tasks = data.map(obj => obj.task) 
+            //const data = await response.json();
+            console.log(response)
+            /*const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks,
                 cur_item:""
-            })
+            })*/
            
         }catch(err){
             console.log(err)
