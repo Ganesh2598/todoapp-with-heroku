@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
+app.use(bodyParser.json())
 
 const path = require("path");
 if (process.env.NODE_ENV === 'production') { 
@@ -35,7 +36,7 @@ app.post("/todos/",async (req,res)=>{
         const listOfTask = await connect.query(
             "INSERT INTO todolist (id,task) VALUES ($1,$2) RETURNING *",[id,task]
         );
-        res.send(listOfTask.rows[0])
+        res.json(listOfTask.rows[0])
         //console.log(req.body)
     }catch(err){
         console.log(err);
@@ -48,7 +49,7 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.send(todoList.rows)
+        res.json(todoList.rows)
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
@@ -61,7 +62,7 @@ app.delete("/todos/:user",async (req,res)=>{
         const updated = await connect.query(
             "DELETE from todolist where id = $1 and task = $2",[id,item]
         );
-        res.send("deleted")
+        res.json("deleted")
         //console.log("deleted")
     }catch(err){
         console.log(err)
