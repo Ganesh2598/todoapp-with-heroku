@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.urlencoded());
-app.use(bodyParser.json())
 
 const path = require("path");
 if (process.env.NODE_ENV === 'production') { 
@@ -46,7 +45,7 @@ app.post("/todos/",async (req,res)=>{
 app.get("/todos/:user",async (req,res)=>{
     try{
         const id = req.params.user;
-        const {todoList} = await connect.query(
+        const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
         res.send(todoList.rows)
