@@ -36,7 +36,7 @@ app.post("/todos/",async (req,res)=>{
         const listOfTask = await connect.query(
             "INSERT INTO todolist (id,task) VALUES ($1,$2) RETURNING *",[id,task]
         );
-        res.json(listOfTask.rows[0])
+        res.send(listOfTask.rows[0])
         //console.log(req.body)
     }catch(err){
         console.log(err);
@@ -46,10 +46,10 @@ app.post("/todos/",async (req,res)=>{
 app.get("/todos/:user",async (req,res)=>{
     try{
         const id = req.params.user;
-        const todoList = await connect.query(
+        const {todoList} = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.json(todoList.rows)
+        res.send(todoList.rows)
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
@@ -62,7 +62,7 @@ app.delete("/todos/:user",async (req,res)=>{
         const updated = await connect.query(
             "DELETE from todolist where id = $1 and task = $2",[id,item]
         );
-        res.json("deleted")
+        res.send("deleted")
         //console.log("deleted")
     }catch(err){
         console.log(err)
