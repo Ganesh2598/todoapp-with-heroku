@@ -10,7 +10,7 @@ class Maincontent extends Component{
         super(props)
         console.log(props.props.location.state)
         if(props.props.location.state !== undefined){
-            this.user_id=props.props.location.state.googleusercontent.Ca;
+            this.user_id=props.props.location.state.googleusercontent.Ea;
             
             window.localStorage.setItem("user_id",this.user_id);
         }else{
