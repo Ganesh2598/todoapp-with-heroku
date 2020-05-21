@@ -24,17 +24,6 @@ const connect = new pool({
     process.env.NODE_ENV=="production" ? prod : dev
 });
 
-app.get("/todos",async (req,res){
-    try {
-        const todoList = await connect.query(
-            "SELECT * FROM todolist"
-        );
-        res.send(todoList);
-    }catch(err){
-        console.log(err)
-    }
-
-})
 
 app.post("/todos/",async (req,res)=>{
     try{
@@ -58,7 +47,7 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.send(todoList.rows)
+        res.json(todoList.rows)
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
