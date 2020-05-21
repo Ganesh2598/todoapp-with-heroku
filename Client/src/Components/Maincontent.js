@@ -42,6 +42,7 @@ class Maincontent extends Component{
                 list:tasks,
                 cur_item:""
             })
+            window.location="/"
         }catch(err){
             console.log(err)
         }
