@@ -2,10 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("pg").Pool;
-const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.urlencoded());
 
 const path = require("path");
 if (process.env.NODE_ENV === 'production') { 
@@ -48,7 +45,7 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.send(todoList.rows)
+        res.send({"name":"ganesh"})
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
