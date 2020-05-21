@@ -32,7 +32,8 @@ class Maincontent extends Component{
 
     async componentDidMount(){
         try {
-            const response = await fetch(`/todos/${this.user_id}`,{
+            const { id } = this.user_id
+            const response = await fetch(`/todos/${id}`,{
                 method : "GET",
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
