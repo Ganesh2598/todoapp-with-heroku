@@ -16,7 +16,7 @@ class Maincontent extends Component{
         }else{
             this.user_id=window.localStorage.getItem("user_id");
         }
-        //console.log(this.user_id)
+        console.log(typeof(this.user_id))
         this.state={
             list:[],
             cur_item:""
