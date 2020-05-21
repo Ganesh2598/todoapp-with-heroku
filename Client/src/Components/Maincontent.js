@@ -33,7 +33,7 @@ class Maincontent extends Component{
     async componentDidMount(){
         try {
             const response = await fetch(`/todos/${this.user_id}`,{
-                headers:""
+                headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
             console.log(data)
@@ -59,17 +59,14 @@ class Maincontent extends Component{
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(body)
             })
-            console.log(response)
+            console.log(response.body)
         }catch(err){
             console.log(err)
         }
         
         try {
             const response = await fetch(`/todos/${this.user_id}`,{
-                headers:{
-                    "Content-Type":"application/json",
-                    "Accept":"application/json"
-                }
+                headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
             console.log(data)
