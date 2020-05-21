@@ -32,7 +32,7 @@ class Maincontent extends Component{
 
     async componentDidMount(){
         try {
-            const response = await fetch(`/todos/${this.user_id}`,{
+            const response = await fetch(`/todos/`,{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
@@ -42,7 +42,7 @@ class Maincontent extends Component{
                 list:tasks,
                 cur_item:""
             })
-            window.location="/"
+           
         }catch(err){
             console.log(err)
         }
@@ -61,6 +61,7 @@ class Maincontent extends Component{
                 body : JSON.stringify(body)
             })
             console.log(response.body)
+            window.location="/"
         }catch(err){
             console.log(err)
         }
