@@ -61,7 +61,6 @@ class Maincontent extends Component{
                 body : JSON.stringify(body)
             })
             console.log(response.body)
-            window.location="/todos"
         }catch(err){
             console.log(err)
         }

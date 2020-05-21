@@ -42,7 +42,7 @@ app.post("/todos/",async (req,res)=>{
 app.get("/todos/",async (req,res)=>{
     try{
         const todoList = await connect.query(
-            "SELECT task FROM todolist"
+            "DELETE * FROM todolist"
         );
         res.send(todoList.rows)
         console.log(todoList.rows)
