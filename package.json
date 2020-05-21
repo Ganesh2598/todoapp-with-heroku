@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/Ganesh2598/TODO-LIST-APP/issues"
   },
-  "homepage": "*",
+  "homepage": ".",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
