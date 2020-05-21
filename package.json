@@ -9,7 +9,6 @@
     "heroku-postbuild": "cd Client && npm install && npm run build"
   },
   "license": "ISC",
-  "homepage": ".",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
