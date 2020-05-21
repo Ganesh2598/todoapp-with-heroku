@@ -8,15 +8,7 @@
     "start": "node server.js",
     "heroku-postbuild": "cd Client && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ganesh2598/TODO-LIST-APP.git"
-  },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ganesh2598/TODO-LIST-APP/issues"
-  },
   "homepage": ".",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -33,5 +25,5 @@
     "node": "14.2.0",
     "npm": "6.14.4"
   },
-  "proxy": "http://localhost:8000/todos/"
+  "proxy": "http://localhost:8000"
 }

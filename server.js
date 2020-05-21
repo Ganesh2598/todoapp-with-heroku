@@ -39,17 +39,7 @@ app.post("/todos/",async (req,res)=>{
     }
 })
 
-app.get("/todos/",async (req,res)=>{
-    try{
-        const todoList = await connect.query(
-            "DELETE * FROM todolist"
-        );
-        res.send(todoList.rows)
-        console.log(todoList.rows)
-    }catch(err){
-        console.log(err);
-    }
-})
+
 
 app.get("/todos/:user",async (req,res)=>{
     try{
@@ -57,7 +47,7 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.json({"name":"ganesh"})
+        res.json(todoList.rows)
         console.log(todoList.rows)
     }catch(err){
         console.log(err);

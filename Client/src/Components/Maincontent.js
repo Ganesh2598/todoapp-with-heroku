@@ -8,7 +8,7 @@ class Maincontent extends Component{
 
     constructor(props){
         super(props)
-        console.log(props.props.location.state)
+        //console.log(props.props.location.state)
         if(props.props.location.state !== undefined){
             this.user_id=props.props.location.state.googleusercontent.Ea;
             
@@ -16,7 +16,7 @@ class Maincontent extends Component{
         }else{
             this.user_id=window.localStorage.getItem("user_id");
         }
-        console.log(this.user_id)
+        //console.log(this.user_id)
         this.state={
             list:[],
             cur_item:""
