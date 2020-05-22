@@ -6,12 +6,7 @@ const bodyparser = require("body-parser");
 
 
 const path = require("path");
-if (process.env.NODE_ENV === 'production') { 
-    app.use(express.static(path.join(__dirname,"Client/build")));
-    app.get("*",(req,res)=>{
-        res.sendFile(path.join(__dirname,"Client/build/index.html"));
-    })
- }
+
 const port = process.env.PORT || 8000;
 
 app.use(cors());
@@ -83,7 +78,13 @@ app.delete("/todos/",async (req,res)=>{
     }
 })
 
-
+if (process.env.NODE_ENV === 'production') { 
+    app.use(express.static(path.join(__dirname,"Client/build")));
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"Client/build/index.html"));
+    })
+    
+ }
 
 app.listen(port,()=>{
     console.log(`server running at ${port}`);
