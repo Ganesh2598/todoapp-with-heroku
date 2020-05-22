@@ -31,14 +31,17 @@ class Maincontent extends Component{
     }
 
     async componentDidMount(){
-        try {
-            const deleted = await fetch(`/todos/`,{
-                method : "DELETE"
-            });
-            console.log(deleted)
+        try{
+            const response = await fetch(`/todos/${this.user_id}`,{
+                method : "GET",
+                headers : {"Content-Type" : "application/json"},
+            })
+            console.log(response)
+            console.log(response.json())
         }catch(err){
             console.log(err)
         }
+        
     }
 
 
