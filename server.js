@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("pg").Pool;
-const body-parser = require("body-parser");
+const bodyparser = require("body-parser");
 
 
 const path = require("path");
@@ -15,8 +15,8 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 8000;
 
 app.use(cors());
-app.use(body-parser.urlencoded({extended:true}))
-app.use(body-parser.json())
+app.use(bodyparser.urlencoded({extended:true}))
+app.use(bodyparser.json())
 
 const dev = "postgresql://postgres:kratos@localhost:5432/todolist";
 const prod = process.env.DATABASE_URL;
@@ -51,7 +51,9 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.json(todoList.rows)
+        res.json({
+            data : todoList
+        })
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
