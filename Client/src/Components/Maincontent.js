@@ -31,13 +31,17 @@ class Maincontent extends Component{
     }
 
     async componentDidMount(){
-        try{
+        try {
             const response = await fetch(`/todos/${this.user_id}`,{
-                method : "GET",
-                headers : {"Content-Type" : "application/json"},
+                headers:{"Content-Type":"application/json","Accept":"application/json"}
+            });
+            const data = await response.json();
+            console.log(data)
+            const tasks = data.map(obj => obj.task) 
+            this.setState({
+                list:tasks,
+                cur_item:""
             })
-            console.log(response)
-            console.log(response.json())
         }catch(err){
             console.log(err)
         }
