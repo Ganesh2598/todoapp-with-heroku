@@ -35,7 +35,7 @@ class Maincontent extends Component{
             const deleted = await fetch(`/todos/`,{
                 method : "DELETE"
             });
-            console.log(res)
+            console.log(deleted)
         }catch(err){
             console.log(err)
         }
