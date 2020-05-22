@@ -36,7 +36,7 @@ class Maincontent extends Component{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
-            console.log(data)
+            console.log(data.rows)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks,

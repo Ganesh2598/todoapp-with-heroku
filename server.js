@@ -46,14 +46,14 @@ app.get("/todos/:user",async (req,res)=>{
         const todoList = await connect.query(
             "SELECT task FROM todolist WHERE id = $1",[id]
         );
-        res.send(todoList)
+        res.send(todoList.rows)
         console.log(todoList.rows)
     }catch(err){
         console.log(err);
     }
 })
 
-/*app.delete("/todos/:user",async (req,res)=>{
+app.delete("/todos/:user",async (req,res)=>{
     try{
         const [id,item] = req.params.user.split(",");
         const updated = await connect.query(
@@ -64,19 +64,9 @@ app.get("/todos/:user",async (req,res)=>{
     }catch(err){
         console.log(err)
     }
-})*/
-
-app.delete("/todos/",async (req,res)=>{
-    try{
-        const updated = await connect.query(
-            "DELETE * from todolist"
-        );
-        res.send("deleted")
-        //console.log("deleted")
-    }catch(err){
-        console.log(err)
-    }
 })
+
+
 
 if (process.env.NODE_ENV === 'production') { 
     app.use(express.static(path.join(__dirname,"Client/build")));
