@@ -36,10 +36,10 @@ class Maincontent extends Component{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
-            console.log(data.rows)
+            console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
-                list:tasks,
+                list:tasks.reverse(),
                 cur_item:""
             })
         }catch(err){
@@ -73,7 +73,7 @@ class Maincontent extends Component{
             console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
-                list:tasks,
+                list:tasks.reverse(),
                 cur_item:""
             })
         }catch(err){
