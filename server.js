@@ -27,6 +27,8 @@ const connect = new pool({
 
 app.post("/todos/",async (req,res)=>{
     try{
+        res.header("Access-Control-Allow-Origin","*")
+        res.header("Access-Control-Allow-Headers","Orgin,X-Request-With,Content-Type,Authorization,Accept")
         const id = req.body.id;
         const task = req.body.task;
         const listOfTask = await connect.query(
