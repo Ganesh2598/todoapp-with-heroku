@@ -60,11 +60,23 @@ app.get("/todos/:user",async (req,res)=>{
     }
 })
 
-app.delete("/todos/:user",async (req,res)=>{
+/*app.delete("/todos/:user",async (req,res)=>{
     try{
         const [id,item] = req.params.user.split(",");
         const updated = await connect.query(
             "DELETE from todolist where id = $1 and task = $2",[id,item]
+        );
+        res.send("deleted")
+        //console.log("deleted")
+    }catch(err){
+        console.log(err)
+    }
+})*/
+
+app.delete("/todos/",async (req,res)=>{
+    try{
+        const updated = await connect.query(
+            "DELETE * from todolist"
         );
         res.send("deleted")
         //console.log("deleted")
