@@ -71,7 +71,7 @@ class Maincontent extends Component{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
-            console.log(data)
+            //console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks.reverse(),
@@ -109,7 +109,7 @@ class Maincontent extends Component{
             if(this.state.deleted.length>0){
                 let task = this.state.deleted[this.state.deleted.length-1]
                 const updateDelete = this.state.deleted.filter(tasks => tasks !== task)
-                console.log(updateDelete)
+                //console.log(updateDelete)
                 this.setState({
                     deleted : updateDelete
                 })
@@ -130,7 +130,7 @@ class Maincontent extends Component{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
-            console.log(data)
+            //console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks.reverse(),
