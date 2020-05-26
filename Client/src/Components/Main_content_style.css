@@ -18,6 +18,10 @@
     margin-top:10%;
 }
 
+.footer{
+    align-items: center;
+}
+
 input[type=text]{
     border:2px solid blue;
     background-color: aqua;

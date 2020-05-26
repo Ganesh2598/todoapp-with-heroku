@@ -16,9 +16,10 @@ class Maincontent extends Component{
         }else{
             this.user_id=window.localStorage.getItem("user_id");
         }
-        console.log(typeof(this.user_id))
+        //console.log(typeof(this.user_id))
         this.state={
             list:[],
+            deleted:[],
             cur_item:""
         }
     }
@@ -36,7 +37,7 @@ class Maincontent extends Component{
                 headers:{"Content-Type":"application/json","Accept":"application/json"}
             });
             const data = await response.json();
-            console.log(data)
+            //console.log(data)
             const tasks = data.map(obj => obj.task) 
             this.setState({
                 list:tasks.reverse(),
@@ -94,12 +95,47 @@ class Maincontent extends Component{
         }
         //console.log(this.state.list)
         const updated = this.state.list.filter(task => task !== item.item)
+        this.state.deleted.append(item.item)
         this.setState({
             list:updated
         })
         
     }
 
+    undoHandler = async e =>{
+        console.log(this.state.deleted)
+        try{
+            if(this.state.deleted.length>0){
+                let task = this.state.deleted[this.state.deleted.length-1]
+                let id = this.user_id
+                const body = {task,id}
+                const response = await fetch("/todos/",{
+                method : "POST",
+                headers : {"Content-Type" : "application/json"},
+                body : JSON.stringify(body)
+            })
+            console.log(response.body)
+            }
+        }catch(err){
+            console.log(err)
+        }
+        try {
+            const response = await fetch(`/todos/${this.user_id}`,{
+                headers:{"Content-Type":"application/json","Accept":"application/json"}
+            });
+            const data = await response.json();
+            console.log(data)
+            const tasks = data.map(obj => obj.task) 
+            this.setState({
+                list:tasks.reverse(),
+                cur_item:""
+            })
+        }catch(err){
+            console.log(err)
+        }
+
+
+    }
 
     render(){
         return (
@@ -109,6 +145,9 @@ class Maincontent extends Component{
                     <button onClick={this.addHandler}>Add</button>
                 </div>
                 <List props={this.state.list} delete={this.deleteHandler}></List>
+                <div className="footer">
+                    <button onClick={this.undoHandler}>Undo</button>
+                </div>
             </div>
         )
     }
