@@ -61,7 +61,7 @@ class Maincontent extends Component{
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(body)
             })
-            console.log(response.body)
+            //console.log(response.body)
         }catch(err){
             console.log(err)
         }
@@ -104,10 +104,10 @@ class Maincontent extends Component{
     }
 
     undoHandler = async e =>{
-        console.log(this.state.deleted)
+        //console.log(this.state.deleted)
         try{
             if(this.state.deleted.length>0){
-                let task = this.state.deleted[0]
+                let task = this.state.deleted[this.state.deleted.length-1]
                 const updateDelete = this.state.deleted.filter(tasks => tasks !== task)
                 console.log(updateDelete)
                 this.setState({
@@ -120,7 +120,7 @@ class Maincontent extends Component{
                 headers : {"Content-Type" : "application/json"},
                 body : JSON.stringify(body)
             })
-            console.log(response.body)
+            //console.log(response.body)
             }
         }catch(err){
             console.log(err)

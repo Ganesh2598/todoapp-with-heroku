@@ -5,7 +5,7 @@ import './App.css'
 
 class Google extends Component{
     onSuccessHandler=(googleusercontent)=>{
-        console.log(googleusercontent.googleId)
+        //console.log(googleusercontent.googleId)
         history.push({
             pathname:"/app",
             state : { googleusercontent } 
