@@ -108,7 +108,7 @@ class Maincontent extends Component{
         try{
             if(this.state.deleted.length>0){
                 let task = this.state.deleted[0]
-                const updateDelete = this.state.deleted.filter(task => task !== task)
+                const updateDelete = this.state.deleted.filter(tasks => tasks !== task)
                 console.log(updateDelete)
                 this.setState({
                     deleted : updateDelete
