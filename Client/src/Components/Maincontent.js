@@ -95,9 +95,11 @@ class Maincontent extends Component{
         }
         //console.log(this.state.list)
         const updated = this.state.list.filter(task => task !== item.item)
-        this.state.deleted.append(item.item)
+        const deleteitem = this.state.deleted
+        deleteitem.append(item.item)
         this.setState({
-            list:updated
+            list:updated,
+            deleted:deleteitem
         })
         
     }
